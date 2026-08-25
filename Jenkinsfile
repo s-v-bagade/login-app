@@ -39,7 +39,7 @@ pipeline {
 			    dir('manifests') {
 				    git branch: 'master',
 					url: "${MANIFEST_REPO}",
-                                        credentailsId: 'github-cred'
+                                        credentialsId: 'github-cred'
 				}
 			}
 	   }
