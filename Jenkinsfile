@@ -51,13 +51,12 @@ pipeline {
 				   variable: 'KUBECONFIG'
 			   )]) {
 			       sh """
-                                       kubectl apply -f manifests/deployment.yaml -n default
-                                       kubectl apply -f manifests/service.yaml -n default 
-				       kubectl set image deployment/login-app \
-					     login-app=${DOCKERHUB_REPO}:${IMAGE_TAG} \
-						 -n default
+                                       sed -i "s|__IMAGE_TAG__|${IMAGE_TAG}|g" manifests/deployment.yaml
+
+                                        kubectl apply -f manifests/deployment.yaml -n default
+                                        kubectl apply -f manifests/service.yaml -n default
 					   
-					   kubectl rollout status deployment/login-app \
+				        kubectl rollout status deployment/login-app \
 					    -n default --timeout=180s
 					"""
 			   }
