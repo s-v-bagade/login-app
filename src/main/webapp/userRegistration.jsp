@@ -6,8 +6,8 @@
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test",
-            "root", "root");
+    Connection con = DriverManager.getConnection("jdbc:mysql://database-1.cxso2woowtsy.ap-south-1.rds.amazonaws.com:3306/test",
+            "admin", "admin123456");
     Statement st = con.createStatement();
     int i = st.executeUpdate("insert into USER(first_name, last_name, email, username, password, regdate) values ('" + firstName + "','" 
     + lastName + "','" + email + "','" + userName + "','" + password + "', CURDATE())");
