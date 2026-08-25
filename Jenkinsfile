@@ -38,7 +38,8 @@ pipeline {
 	        steps {
 			    dir('manifests') {
 				    git branch: 'master',
-					url: "${MANIFEST_REPO}"
+					url: "${MANIFEST_REPO}",
+                                        credentailsId: 'github-cred'
 				}
 			}
 	   }
