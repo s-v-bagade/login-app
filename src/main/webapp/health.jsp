@@ -3,7 +3,7 @@
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
-            "jdbc:mysql://wrongdatabase-1.cxso2woowtsy.ap-south-1.rds.amazonaws.com:3306/test",
+            "jdbc:mysql://database-1.cxso2woowtsy.ap-south-1.rds.amazonaws.com:3306/test",
             "admin", "admin123456");
         con.close();
         response.setStatus(200);
